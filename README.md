@@ -29,7 +29,7 @@ The frequencies are by default tuned in just intonation, making the result sound
 fi.intonate_frequencies(in_path,out_path,fi._E_FREQ,system=fi._TEMP)
 ```
 
-There are two ways to set the window length of the furier transform applied. Either one can set the number of samples with the keyword `nperseg`
+There are two ways to set the window length of the Fourier transform applied. Either one can set the number of samples with the keyword `nperseg`
 
 ```python
 fi.intonate_frequencies(in_path,out_path,fi._B_FREQ,nperseg=512)
@@ -41,9 +41,9 @@ or give the window time in seconds (with the closest increment chosen) with the 
 fi.intonate_frequencies(in_path,out_path,fi._B_FREQ,window_time=0.001)
 ```
 
-`window_time` takes precedence over `nperseg`. A short window will filter out low end and create low mid resonances, a moderate window will preserve lows and low mids but smear the high mids and highs into an organ like tone and a long window will smear all frequencies into ethereal organ-like swells.
+`window_time` takes precedence over `nperseg`. A short window will filter out low end and create low mid resonances, a moderate window will preserve lows and low mids but smear the high mids and highs into an organ like tone and a long window will smear all frequencies into ethereal organ-like swells, approximately timed to the input material.
 
-The last parameter is the number of allowed frequency adjacent to the allowed frequencies. This filter `broadness` parameter will filter notes stronger for low values (with the lowest being 0) and will retain more of the input's form for higher values.
+The last parameter is the number of allowed frequencies adjacent to the exact frequencies. This filter `broadness` parameter will filter notes stronger for low values (with the lowest being 1) and will retain more of the input's form for higher values.
 
 ```python
 fi.intonate_frequencies(in_path,out_path,fi._E_FREQ,broadness=4)
