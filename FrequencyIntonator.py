@@ -79,8 +79,13 @@ def build_frequency_matrix(frequency_list,fundamental=440.,system='equal tempera
             matrix[i]=1.
     return np.hstack((np.array([0]),matrix))
 
-def harmonicise(input_path,output_path,fundamental=440.,system='equal temperament',broadness=1,nperseg=1024,inverse=False):
+def intonate_frequencies(input_path,output_path,root_note=440.,system='equal temperament',broadness=1,nperseg=1024,inverse=False,window_time=None):
+    
     rate,wav=wavfile.read(input_path)
+    print(rate,1./rate)
+    if window_time:
+        nperseg=int(window_time*rate)
+        print(nperseg)
     stereo=True
     if len(wav.shape)==2:
         stereo=True
@@ -92,10 +97,9 @@ def harmonicise(input_path,output_path,fundamental=440.,system='equal temperamen
         f,t,Zxx_r=signal.stft(wav[:,1],rate,nperseg=nperseg)
     else:
         f,t,Zxx_l=signal.stft(wav,rate,nperseg=nperseg)
-    fm=build_frequency_matrix(f,fundamental,'equal temperament',broadness)
+    fm=build_frequency_matrix(f,root_note,'equal temperament',broadness)
     if inverse:
         fm=(fm-1)*(-1)
-    print(f[5],t[1]-t[0])
     for i in range(len(t)):
         Zxx_l[:,i]*=fm
         
