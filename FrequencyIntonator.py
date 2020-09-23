@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Sep 22 17:12:15 2020
-
-@author: victor
-"""
 
 import numpy as np
 from scipy.io import wavfile
