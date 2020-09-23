@@ -23,7 +23,7 @@ For A=440Hz equal temperament, frequency shorthands with keywords in the form `_
 fi.intonate_frequencies(in_path,out_path,fi._Gb_FREQ)
 ```
 
-The frequencies are by default tuned in just intonation, making the result sound more harmonically 'whole'. The tuning system can also be set to equal temperament
+The frequencies are by default tuned in just intonation, making the result sound more harmonically 'whole'. The tuning system can also be set to equal temperament with the keyword `_TEMP`
 
 ```python
 fi.intonate_frequencies(in_path,out_path,fi._E_FREQ,system=fi._TEMP)
@@ -49,4 +49,4 @@ The last parameter is the number of allowed frequencies adjacent to the exact fr
 fi.intonate_frequencies(in_path,out_path,fi._E_FREQ,broadness=4)
 ```
 
-This script uses scipy's `wavfile` and is thus restricted to the supported formats, particularly not allowing 24 bit wav files. This script will always return a 32 bit floating point wav.
+This script uses scipy's `wavfile` and is thus restricted to its supported formats, particularly not allowing 24 bit wav files. This script will always return a 32 bit floating point wav.
