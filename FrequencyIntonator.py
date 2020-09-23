@@ -82,10 +82,8 @@ def build_frequency_matrix(frequency_list,fundamental=440.,system='equal tempera
 def intonate_frequencies(input_path,output_path,root_note=440.,system='equal temperament',broadness=1,nperseg=1024,inverse=False,window_time=None):
     
     rate,wav=wavfile.read(input_path)
-    print(rate,1./rate)
     if window_time:
         nperseg=int(window_time*rate)
-        print(nperseg)
     stereo=True
     if len(wav.shape)==2:
         stereo=True
