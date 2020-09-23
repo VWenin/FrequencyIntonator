@@ -17,7 +17,7 @@ This will return a file tuned to A-major with A=440Hz. To tune to a specific key
 fi.intonate_frequencies(in_path,out_path,432)
 ```
 
-For A=440Hz equal temperament, frequency shorthands are provided, which can be used in the following way
+For A=440Hz equal temperament, frequency shorthands with keywords in the form `_NOTE_FREQ` are provided, which can be used in the following way
 
 ```python
 fi.intonate_frequencies(in_path,out_path,fi._Gb_FREQ)
