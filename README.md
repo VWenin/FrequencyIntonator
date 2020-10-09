@@ -1,4 +1,5 @@
 # FrequencyIntonator
+
 This is an experimental python script that filters frequencies that belong to a certain key out of audio material in wav form and returns a 'tuned' wav.
 
 Operation is fairly simple. A conversion of a wav to a 'tuned' wav can be as simple as
@@ -10,7 +11,6 @@ out_path='./output.wav'
 
 fi.intonate_frequencies(in_path,out_path)
 ```
-
 This will return a file tuned to A-major with A=440Hz. To tune to a specific key, one has to provide the frequency of the major key root note. If we wanted to tune to A-Major with A=432, we'd enter
 
 ```python
@@ -56,3 +56,10 @@ fi.intonate_frequencies(in_path,out_path,fi._E_FREQ,broadness=4)
 ```
 
 This script uses scipy's `wavfile` and is thus restricted to its supported formats, particularly not allowing 24 bit wav files. This script will always return a 32 bit floating point wav.
+
+# Setup
+
+Run:
+```bash
+pip3 install -r requirements.txt
+```
